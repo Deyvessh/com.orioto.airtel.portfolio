@@ -207,13 +207,13 @@
 
     function generateQuote() {
       const quotes = [
-        "“The best way to get started is to quit talking and begin doing.” – Walt Disney",
-        "“Don’t let yesterday take up too much of today.” – Will Rogers",
-        "“It’s not whether you get knocked down, it’s whether you get up.” – Vince Lombardi",
-        "“If you are working on something exciting, it will keep you motivated.”",
-        "“Success is not final, failure is not fatal: it is the courage to continue that counts.”"
+        "&#x201C;The best way to get started is to quit talking and begin doing.&#x201D; &#x2013; Walt Disney",
+        "&#x201C;Don&#x2019;t let yesterday take up too much of today.&#x201D; &#x2013; Will Rogers",
+        "&#x201C;It&#x2019;s not whether you get knocked down, it&#x2019;s whether you get up.&#x201D; &#x2013; Vince Lombardi",
+        "&#x201C;If you are working on something exciting, it will keep you motivated.&#x201D;",
+        "&#x201C;Success is not final, failure is not fatal: it is the courage to continue that counts.&#x201D;"
       ];
-      document.getElementById("quote").innerText = quotes[Math.floor(Math.random() * quotes.length)];
+      document.getElementById("quote").innerHTML = quotes[Math.floor(Math.random() * quotes.length)];
     }
 
     function changeBackground() {
