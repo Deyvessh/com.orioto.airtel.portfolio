@@ -53,19 +53,13 @@
       font-size: 1em;
       transition: transform 0.2s, background 0.3s;
     }
-    button:hover {
-      background: #357ABD;
-      transform: scale(1.05);
-    }
-    button:active {
-      transform: scale(0.95);
-    }
+    button:hover { background: #357ABD; transform: scale(1.05); }
+    button:active { transform: scale(0.95); }
     .fade { animation: fadeIn 0.8s ease; }
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    /* Dark Theme */
     body.dark { background: linear-gradient(135deg, #232526 0%, #414345 100%); color: #eee; }
     body.dark .card { background: #2c2c2c; color: #fff; }
     body.dark header { background: #1e1e1e; }
@@ -85,7 +79,6 @@
     }
     .theme-toggle:hover { background: #e68900; }
 
-    /* Icon animations */
     .spin { animation: spin 3s linear infinite; }
     .pulse { animation: pulse 1.5s infinite; }
     .bounce { animation: bounce 1.5s infinite; }
@@ -98,7 +91,6 @@
     @keyframes flip { from { transform: rotateY(0); } to { transform: rotateY(180deg); } }
     @keyframes fly { 0% { transform: translateY(0); opacity: 1; } 100% { transform: translateY(-80px); opacity: 0.3; } }
 
-    /* Rocket trail stars */
     .trail-star {
       position: absolute;
       font-size: 1em;
@@ -111,7 +103,6 @@
       to { transform: translateY(20px) scale(0.5); opacity: 0; }
     }
 
-    /* Typing effect */
     .typing {
       border-right: 2px solid #333;
       white-space: nowrap;
@@ -143,31 +134,30 @@
     </div>
 
     <div class="card">
-      <h2>📜 Random Quote</h2>
+      <h2>&#x1F4DC; Random Quote</h2> <!-- 📜 -->
       <p id="quote">Click below for motivation!</p>
-      <button onclick="generateQuote()">💡 Inspire Me</button>
+      <button onclick="generateQuote()">&#x1F4A1; Inspire Me</button> <!-- 💡 -->
     </div>
 
     <div class="card">
-      <h2>🎨 Change Background</h2>
-      <button onclick="changeBackground()">🌈 Change Theme</button>
+      <h2>&#x1F3A8; Change Background</h2> <!-- 🎨 -->
+      <button onclick="changeBackground()">&#x1F308; Change Theme</button> <!-- 🌈 -->
     </div>
 
     <div class="card">
-      <h2>👀 Visitor Counter</h2>
+      <h2>&#x1F440; Visitor Counter</h2> <!-- 👀 -->
       <p id="visits"></p>
     </div>
   </main>
 
   <script>
-    // Dynamic Messages
     function generateMessage() {
       const messages = [
-        "&#x1F31E; Have a great day! <i class='fa-solid fa-sun spin'></i>", // 🌞
+        "&#x1F31E; Have a great day! <i class='fa-solid fa-sun spin'></i>",   // 🌞
         "&#x1F680; You are awesome! <i class='fa-solid fa-rocket fly' id='rocket'></i>", // 🚀
         "&#x1F4DA; Keep learning, keep growing! <i class='fa-solid fa-book flip'></i>", // 📚
-        "&#x2B50; Success is on your way! <i class='fa-solid fa-star pulse'></i>", // ⭐
-        "&#x1F4BB; Coding is fun! <i class='fa-solid fa-laptop-code bounce'></i>" // 💻
+        "&#x2B50; Success is on your way! <i class='fa-solid fa-star pulse'></i>",     // ⭐
+        "&#x1F4BB; Coding is fun! <i class='fa-solid fa-laptop-code bounce'></i>"      // 💻
       ];
       const randomMessage = messages[Math.floor(Math.random() * messages.length)];
       const dynamicText = document.getElementById("dynamic-text");
@@ -175,13 +165,9 @@
       dynamicText.classList.remove("fade");
       void dynamicText.offsetWidth;
       dynamicText.classList.add("fade");
-
-      if (randomMessage.includes("rocket")) {
-        launchRocketTrail();
-      }
+      if (randomMessage.includes("rocket")) { launchRocketTrail(); }
     }
 
-    // Rocket trail
     function launchRocketTrail() {
       const rocket = document.getElementById("rocket");
       if (!rocket) return;
@@ -192,7 +178,7 @@
       const interval = setInterval(() => {
         if (i > 6) { clearInterval(interval); return; }
         const star = document.createElement("span");
-        star.innerHTML = "&#x2B50;";
+        star.innerHTML = "&#x2B50;"; // ⭐
         star.classList.add("trail-star");
         star.style.color = colors[Math.floor(Math.random() * colors.length)];
         star.style.fontSize = (Math.random() * 14 + 10) + "px";
@@ -204,13 +190,11 @@
       }, 150);
     }
 
-    // Time
     function updateTime() {
       document.getElementById("time").innerText = new Date().toLocaleTimeString();
     }
     setInterval(updateTime, 1000); updateTime();
 
-    // Theme toggle
     function toggleTheme() {
       document.body.classList.toggle("dark");
       const icon = document.querySelector(".theme-toggle i");
@@ -221,7 +205,6 @@
       }
     }
 
-    // Quotes
     function generateQuote() {
       const quotes = [
         "“The best way to get started is to quit talking and begin doing.” – Walt Disney",
@@ -233,7 +216,6 @@
       document.getElementById("quote").innerText = quotes[Math.floor(Math.random() * quotes.length)];
     }
 
-    // Background changer
     function changeBackground() {
       const gradients = [
         "linear-gradient(135deg, #ff9a9e, #fad0c4)",
@@ -245,7 +227,6 @@
       document.body.style.background = gradients[Math.floor(Math.random() * gradients.length)];
     }
 
-    // Visitor counter
     function countVisits() {
       let visits = localStorage.getItem("visits") || 0;
       visits++;
