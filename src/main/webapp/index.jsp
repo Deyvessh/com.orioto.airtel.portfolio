@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>com.orioto.airtel.portfolio</title>
   <style>
@@ -20,6 +21,7 @@
       text-align: center;
       font-size: 1.8em;
       letter-spacing: 1px;
+      position: relative;
     }
     main {
       padding: 20px;
@@ -76,16 +78,17 @@
       background: #1e1e1e;
     }
     .theme-toggle {
-      position: fixed;
-      top: 15px;
-      right: 15px;
+      position: absolute;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
       background: #ff9800;
       border: none;
       color: white;
-      padding: 10px 15px;
-      border-radius: 50px;
+      padding: 8px 12px;
+      border-radius: 20px;
       cursor: pointer;
-      font-size: 1.1em;
+      font-size: 1em;
       transition: 0.3s;
     }
     .theme-toggle:hover {
@@ -97,21 +100,20 @@
 <body>
   <header>
     <i class="fa-solid fa-star"></i> com.orioto.airtel.portfolio <i class="fa-solid fa-star"></i>
+    <button class="theme-toggle" onclick="toggleTheme()">
+      <i class="fa-solid fa-moon"></i>
+    </button>
   </header>
-  
-  <button class="theme-toggle" onclick="toggleTheme()">
-    <i class="fa-solid fa-moon"></i>
-  </button>
 
   <main>
     <div class="card">
       <h2>Welcome!</h2>
       <p id="dynamic-text">Click the button below to see dynamic content!</p>
-      <button onclick="generateMessage()">✨ Show Message</button>
+      <button onclick="generateMessage()">&#x2728; Show Message</button> <!-- ✨ -->
     </div>
 
     <div class="card">
-      <h2>⏰ Current Time</h2>
+      <h2>&#x23F0; Current Time</h2> <!-- ⏰ -->
       <p id="time"></p>
     </div>
   </main>
@@ -119,11 +121,11 @@
   <script>
     function generateMessage() {
       const messages = [
-        "🌞 Have a great day! <i class='fa-solid fa-sun'></i>",
-        "🚀 You are awesome! <i class='fa-solid fa-rocket'></i>",
-        "📚 Keep learning, keep growing! <i class='fa-solid fa-book'></i>",
-        "⭐ Success is on your way! <i class='fa-solid fa-star'></i>",
-        "💻 Coding is fun! <i class='fa-solid fa-laptop-code'></i>"
+        "&#x1F31E; Have a great day! <i class='fa-solid fa-sun'></i>", // 🌞
+        "&#x1F680; You are awesome! <i class='fa-solid fa-rocket'></i>", // 🚀
+        "&#x1F4DA; Keep learning, keep growing! <i class='fa-solid fa-book'></i>", // 📚
+        "&#x2B50; Success is on your way! <i class='fa-solid fa-star'></i>", // ⭐
+        "&#x1F4BB; Coding is fun! <i class='fa-solid fa-laptop-code'></i>" // 💻
       ];
       const randomMessage = messages[Math.floor(Math.random() * messages.length)];
       const dynamicText = document.getElementById("dynamic-text");
